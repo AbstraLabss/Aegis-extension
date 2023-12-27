@@ -132,6 +132,11 @@
 }
 
 /* Report Page stylings */
+
+.main__bg-report {
+  background-image: url(../img/bg_bottom-report.png);
+}
+
 .container-report {
   margin-top: 0;
 }
@@ -190,12 +195,41 @@
 .dropdown {
   position: relative;
   color: #52525b;
+  margin-bottom: 10px;
+  padding: 0;
+  transition: margin-bottom 0.3s ease;
 }
 
 .dropdown label {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 12px;
+  transition: all 0.3s ease;
+}
+
+.dropdown label img {
+  transition: transform 0.3s ease;
+}
+
+.dropdown .dropdown-content {
+  width: 100%;
+  position: relative;
+  background-color: #18181b;
+  opacity: 0;
+  height: 0;
+  transition: all 0.3s ease;
+  flex-direction: column;
+  gap: 2px;
+  border-radius: 14px;
+  z-index: 1;
+}
+
+.dropdown__item {
+  cursor: pointer;
+  padding: 12px;
+  font-size: 16px;
+  color: #fff;
 }
 
 .container__inputElements input::placeholder {
@@ -206,4 +240,32 @@
 .container__inputElements input:focus {
   border: none;
   outline: none;
+}
+
+.instantiated_dropdown {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+#instantiated_dropdown--true {
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+#reportButton {
+  width: min(100%, 280px);
+  padding: 16px 12px;
+  background-color: #fff;
+  border-radius: 45px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.button--report {
+  all: unset;
+  color: #09090b;
+  font-family: "Satoshi", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
 }

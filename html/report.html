@@ -24,12 +24,11 @@
     <title>OpSecurity | Protect</title>
   </head>
 
-  <body>
+  <body style="position: relative">
+    <div id="loader-background"></div>
+    <div id="loader"></div>
     <div class="page-content opsec-main">
-      <div class="main__bg main__bg-2"></div>
-
-      <div id="loader-background"></div>
-      <div id="loader"></div>
+      <div class="main__bg main__bg-2 main__bg-report"></div>
 
       <div class="container container-report">
         <div class="container__header">
@@ -60,18 +59,17 @@
             <select id="targets"></select>
           </div> -->
         <div class="container__inputElements">
-          <div class="dropdown">
+          <div class="dropdown" id="dropdown" aria-modal="false">
             <label for="typeDropdown">
               <span>You are reporting:</span>
               <img src="../img/arrow-down.png" />
             </label>
-            <select id="typeDropdown" required>
-              <option disabled>Select Type</option>
-              <option value="domain" selected>Website</option>
-              <option value="social">X Account</option>
-            </select>
+            <div class="dropdown-content" id="typeDropdown" data-value="">
+              <div data-value="domain" class="dropdown__item">Website</div>
+              <div data-value="social" class="dropdown__item">X Account</div>
+            </div>
           </div>
-          <div class="inputElement">
+          <div class="inputElement instantiated_dropdown">
             <input
               type="url"
               autofocus
@@ -86,20 +84,26 @@
           <input
             type="url"
             autofocus
-            id="original"
+            id="impersonatedUrl"
+            class="instantiated_dropdown"
             placeholder="Impersonated URL (Optional)"
             required
           />
         </div>
-
-        <button id="reportButton" class="btn btn-primary pull-right">
-          SEND REPORT
-        </button>
       </div>
 
       <footer class="footer">
-        <img src="../img/logo.png" width="42px" height="42px" />
-        <span class="footer-text">OpSec</span>
+        <div id="instantiated_dropdown--true">
+          <img src="../img/logo.png" width="42px" height="42px" />
+          <span class="footer-text">OpSec</span>
+        </div>
+        <div
+          class="instantiated_dropdown"
+          style="display: none"
+          id="reportButton"
+        >
+          <button class="button--report">SEND REPORT</button>
+        </div>
       </footer>
     </div>
 
