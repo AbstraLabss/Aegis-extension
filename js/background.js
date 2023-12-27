@@ -115,7 +115,7 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
       browser.tabs.query(
         { currentWindow: true, active: true },
         function (tabs) {
-          updateHeader(tabs[0].url);
+          updateHeader(tabs[0].url, tabs[0].favIconUrl);
           updateIcon(tabs[0].id);
         }
       );
@@ -198,7 +198,6 @@ function updatePopup(text, color, title) {
   if (views.length > 0) {
     let indicatorElement = views[0].document.getElementById("statusPhrase");
     if (indicatorElement) {
-      console.log(indicatorElement, "Updating Popup");
       indicatorElement.textContent = text;
       indicatorElement.style.color = color;
       indicatorElement.title = title;
@@ -206,14 +205,19 @@ function updatePopup(text, color, title) {
   }
 }
 
-function updateHeader(url) {
-  console.log("Updating Header");
+function updateHeader(url, favIcon) {
+  console.log("Updating Header, FavIcon URL: ", favIcon, url);
   var views = browser.extension.getViews({ type: "popup" });
   if (views.length > 0) {
     let headerElement = views[0].document.getElementById("headerTitle");
     if (headerElement) {
-      text = getDomainFromURL(url);
+      let text = getDomainFromURL(url);
+      text = text ? text.charAt(0).toUpperCase() + text.slice(1) : "";
       headerElement.textContent = text;
+    }
+    let faviconElement = views[0].document.getElementById("headerFavicon");
+    if (faviconElement && favIcon) {
+      faviconElement.src = favIcon;
     }
   }
 }
@@ -275,19 +279,19 @@ function twitterSafeDomain(url) {
 
 browser.tabs.onCreated.addListener(function (tab) {
   checkTwitter(tab.id, tab.url);
-  updateHeader(tab.url);
+  updateHeader(tab.url, tab.favIconUrl);
   updateIcon(tab.id);
 });
 
 browser.tabs.onActivated.addListener(function (tab) {
   checkTwitter(tab.id, tab.url);
-  updateHeader(tab.url);
+  updateHeader(tab.url, tab.favIconUrl);
   updateIcon(tab.id);
 });
 
 browser.tabs.onUpdated.addListener(function (tabId, changeInfo) {
   checkTwitter(tabId, changeInfo.url);
-  updateHeader(changeInfo.url);
+  updateHeader(changeInfo.url, changeInfo.favIconUrl);
   updateIcon(tabId);
 });
 
