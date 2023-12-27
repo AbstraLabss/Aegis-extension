@@ -6,6 +6,19 @@
   height: 550px;
   position: relative;
 }
+#hamburger {
+  cursor: pointer;
+  position: relative;
+  z-index: 45;
+}
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 55;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
 .main__bg {
   width: 100%;
   position: absolute;
@@ -13,6 +26,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
+  z-index: 0;
 }
 .main__bg-1 {
   top: 0;
@@ -268,4 +282,98 @@
   font-weight: 700;
   width: 100%;
   text-align: center;
+}
+
+/* Navbar stylings */
+.opsec__navbar {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  background-color: #09090b;
+  width: 250px;
+  height: 550px;
+  position: relative;
+  z-index: 55;
+}
+
+.navbar-text {
+  font-family: "Satoshi", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+
+#close {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.navbar__top,
+.navbar__link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.navbar__links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.navbar__footer {
+  flex-direction: column !important;
+  gap: 12px !important;
+  bottom: 35px !important;
+}
+
+.footer__item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Cooming Soon Page */
+.container__coming-soon {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  height: -webkit-fill-available;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.coming-soon__header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 120px;
+}
+
+.coming-soon__header h1 {
+  font-family: "Satoshi", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  line-height: 0.75;
+}
+
+.coming-soon__header span {
+  background-color: #26a69a;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  align-self: flex-end;
+}
+
+.coming-soon__text {
+  font-family: "Satoshi", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  color: #71717a;
+  margin-top: 20px;
+  max-width: 250px;
+  font-weight: 400;
 }
