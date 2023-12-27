@@ -6,12 +6,12 @@ const SAFE_COLOR = "#26a69a";
 const SAFE_LABEL = "Safe";
 const SAFE_TITLE = "The site is verified";
 
-const UNKNOWN_COLOR = "#969696";
+const UNKNOWN_COLOR = "#71717A";
 const UNKNOWN_LABEL = "Unknown";
 const UNKNOWN_TITLE = "The site is unknown";
 
-const DANGEROUS_COLOR = "#ff0400";
-const DANGEROUS_LABEL = "Dangerous";
+const DANGEROUS_COLOR = "#F44336";
+const DANGEROUS_LABEL = "Unsafe";
 const DANGEROUS_TITLE = "This site is dangerous";
 
 const LIST_BASE =
@@ -174,7 +174,7 @@ chrome.runtime.onMessageExternal.addListener(
 function updateIcon(tabId) {
   if (tabs[tabId] == null || tabs[tabId].state === UNKNOWN_LABEL) {
     browser.browserAction.setIcon({
-      path: "/img/tab-icon-unknown.png",
+      path: "/img/unknown.png",
       tabId: tabId,
     });
     updatePopup(UNKNOWN_LABEL, UNKNOWN_COLOR, UNKNOWN_TITLE);
@@ -186,7 +186,7 @@ function updateIcon(tabId) {
     updatePopup(SAFE_LABEL, SAFE_COLOR, SAFE_TITLE);
   } else if (tabs[tabId].state === DANGEROUS_LABEL) {
     browser.browserAction.setIcon({
-      path: "/img/tab-icon-dangerous.png",
+      path: "/img/unsafe.png",
       tabId: tabId,
     });
     updatePopup(DANGEROUS_LABEL, DANGEROUS_COLOR, DANGEROUS_TITLE);
@@ -197,10 +197,14 @@ function updatePopup(text, color, title) {
   var views = browser.extension.getViews({ type: "popup" });
   if (views.length > 0) {
     let indicatorElement = views[0].document.getElementById("statusPhrase");
+    let indicatorImage = views[0].document.getElementById("statusImage");
     if (indicatorElement) {
       indicatorElement.textContent = text;
       indicatorElement.style.color = color;
       indicatorElement.title = title;
+    }
+    if (indicatorImage) {
+      indicatorImage.src = `/img/${text.toLowerCase()}.png`;
     }
   }
 }

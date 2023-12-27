@@ -33,11 +33,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
 }
 
 .container {
-  margin-top: 90px;
+  margin-top: 70px;
 }
 
 .container__website {
@@ -78,16 +77,17 @@
   color: #26a69a;
 }
 
-.container__action__report {
+.container__action {
   padding: 13px 21px;
   display: flex;
   align-items: center;
   gap: 8px;
   position: relative;
+  cursor: pointer;
 }
 
-.container__action__report::before,
-.container__action__report::after {
+/* .container__action::before,
+.container__action::after {
   content: "";
   position: absolute;
   width: 60%;
@@ -99,15 +99,15 @@
   );
 }
 
-.container__action__report::before {
+.container__action::before {
   top: 0;
   left: 20px;
 }
 
-.container__action__report::after {
+.container__action::after {
   bottom: 0;
   right: 20px;
-}
+} */
 
 .action-text {
   font-family: "Satoshi", sans-serif;
@@ -129,4 +129,81 @@
   font-size: 20px;
   font-weight: 600;
   color: #fff;
+}
+
+/* Report Page stylings */
+.container-report {
+  margin-top: 0;
+}
+
+.container__header {
+  position: relative;
+  width: 100%;
+}
+
+.container__header h3 {
+  font-family: "Satoshi", sans-serif;
+  font-size: 18px;
+  text-align: center;
+  color: #71717a;
+}
+
+.container__header a {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.container__website-report {
+  flex-direction: row;
+  margin: 8px 0;
+}
+
+.container__inputElements {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.inputElement {
+  width: 100%;
+}
+
+.inputElement a {
+  text-align: right;
+}
+
+.container__inputElements input,
+.dropdown {
+  width: min(100%, 300px);
+  padding: 12px;
+  background-color: #18181b;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+  height: 48px;
+}
+
+.dropdown {
+  position: relative;
+  color: #52525b;
+}
+
+.dropdown label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container__inputElements input::placeholder {
+  color: #52525b;
+  font-size: 14px;
+}
+
+.container__inputElements input:focus {
+  border: none;
+  outline: none;
 }

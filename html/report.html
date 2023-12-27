@@ -8,67 +8,47 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
+    <!-- Fonts -->
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@1,300,400&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/font-awesome.min.css" />
     <link rel="stylesheet" href="../css/datalist.css" />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/opsec.css" />
 
     <title>OpSecurity | Protect</title>
   </head>
 
   <body>
-    <div class="page-content">
-      <a href="#">
-        <div id="headerBar" class="header-bar">
-          <span id="statusPhrase">Unknown</span>
-        </div>
-      </a>
+    <div class="page-content opsec-main">
+      <div class="main__bg main__bg-2"></div>
+
       <div id="loader-background"></div>
       <div id="loader"></div>
-      <div class="header">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="logo">
-                <a href="./index.html"
-                  ><img src="../img/logo.png" alt="OpSecurity"
-                /></a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="menuIcon">
-                <a href="index.html">
-                  <!--
-                <a href="https://www.phishfort.com/login" target="_blank" id="loginButton">
-                  Login
-                </a>
-                <a href="https://www.phishfort.com/profile" target="_blank" id="profileButton">
-                </a>
-                -->
-                </a>
-              </div>
-            </div>
-          </div>
+
+      <div class="container container-report">
+        <div class="container__header">
+          <a href="./index.html">
+            <img width="18px" height="18px" src="../img/back-arrow_icon.png" />
+          </a>
+          <h3>Report</h3>
         </div>
-      </div>
-      <div class="main-content">
-        <div class="container">
-          <div class="form-group pb-3">
-            <label for="exampleFormControlInput1">Malicious Link</label>
-            <input
-              type="url"
-              autofocus
-              class="form-control inputStyle"
-              id="maliciousSite"
-              placeholder="e.g. https://www.attacker.com"
-              required
-            />
-            <a href="#" id="reportCurrent"
-              ><span class="small pull-right mt-1">Report current site</span></a
-            >
-          </div>
-          <div class="form-group">
+
+        <div class="container__website container__website-report">
+          <img
+            src="../img/internet_icon.png"
+            width="32px"
+            height="32px"
+            id="headerFavicon"
+          />
+          <span id="headerTitle" class="website-title"></span>
+        </div>
+        <!-- <div class="form-group">
             <label for="targets">Target Brand</label>
             <input
               class="inputStyle"
@@ -78,54 +58,48 @@
               placeholder="e.g. myetherwallet.com"
             />
             <select id="targets"></select>
-          </div>
-          <div class="form-group">
+          </div> -->
+        <div class="container__inputElements">
+          <div class="dropdown">
+            <label for="typeDropdown">
+              <span>You are reporting:</span>
+              <img src="../img/arrow-down.png" />
+            </label>
             <select id="typeDropdown" required>
               <option disabled>Select Type</option>
-              <option value="domain">Website</option>
-              <option value="social">Social Media Account</option>
-              <option value="app:playstore">Play Store App</option>
-              <option value="app:appstore">App Store App</option>
-              <option value="app:thirdparty">Third Party App</option>
-              <option value="browser:extension">Browser Extension</option>
+              <option value="domain" selected>Website</option>
+              <option value="social">X Account</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="comment"
-              >Comment <span class="small">(Optional)</span></label
+          <div class="inputElement">
+            <input
+              type="url"
+              autofocus
+              id="maliciousSite"
+              placeholder="e.g. https://www.attacker.com"
+              required
+            />
+            <a href="#" id="reportCurrent"
+              ><span class="small pull-right mt-1">Report current site</span></a
             >
-            <textarea
-              class="form-control inputStyle"
-              style="resize: none"
-              id="comment"
-              rows="1"
-            ></textarea>
           </div>
-
-          <a href="./index.html">
-            <button class="btn btn-secondary pull-left">Back</button>
-          </a>
-
-          <button id="reportButton" class="btn btn-primary pull-right">
-            Report
-          </button>
+          <input
+            type="url"
+            autofocus
+            id="original"
+            placeholder="Impersonated URL (Optional)"
+            required
+          />
         </div>
+
+        <button id="reportButton" class="btn btn-primary pull-right">
+          SEND REPORT
+        </button>
       </div>
-      <footer class="page-footer font-small cyan darken-3 mt-3">
-        <a href="https://twitter.com/phishfort" target="_blank">
-          <img class="twitter-icon center" src="../img/twitter.svg" />
-        </a>
-        <div class="text-center small mt-3 black-text">
-          <a href="settings.html" class="black-text"> Settings </a>
-          |
-          <a href="info.html" class="black-text"> About </a>
-          |
-          <a href="privacy.html" class="black-text"> Privacy Policy </a>
-        </div>
-        <div class="footer-copyright text-center py-3 small">
-          Copyright © 2021
-          <a href="https://www.phishfort.com" target="_blank">OpSecurity</a>
-        </div>
+
+      <footer class="footer">
+        <img src="../img/logo.png" width="42px" height="42px" />
+        <span class="footer-text">OpSec</span>
       </footer>
     </div>
 
