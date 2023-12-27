@@ -8,80 +8,65 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
+    <!-- Fonts -->
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@1,300,400&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/font-awesome.min.css" />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/opsec.css" />
     <title>OpSecurity | Protect</title>
   </head>
 
   <body>
-    <div class="page-content">
-      <a href="#">
-        <div id="headerBar" class="header-bar">
-          <span id="statusPhrase">Unknown</span>
-        </div>
-      </a>
+    <div class="page-content opsec-main">
+      <div class="main__bg main__bg-1"></div>
+      <div class="main__bg main__bg-2"></div>
 
-      <div class="header">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="logo">
-                <a href="./index.html"
-                  ><img src="../img/logo.png" alt="OpSecurity"
-                /></a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="menuIcon">
-                <!--
-              <a href="http://127.0.0.1:4000/login" target="_blank" id="loginButton">
-                Login
-              </a>
-              <a href="http://127.0.0.1:4000/profile" target="_blank" id="profileButton">
-              </a>
-             -->
-              </div>
-            </div>
+      <div class="container">
+        <div class="container__website">
+          <img src="../img/internet_icon.png" width="32px" height="32px" />
+          <span id="headerTitle" class="website-title"></span>
+        </div>
+
+        <div class="container__indicator">
+          <img src="../img/safe.png" width="40px" height="40px" />
+          <div
+            class="indicator-text"
+            id="statusPhrase"
+            title="The site is unknown"
+          >
+            Unknown
           </div>
+        </div>
+
+        <div class="container__action">
+          <a href="report.html" class="container__action__report">
+            <img src="../img/report_icon.png" width="18px" height="18px" />
+            <span
+              class="action-text"
+              title="Report a scam to the OpSecurity team"
+              >Report this website</span
+            >
+          </a>
         </div>
       </div>
 
-      <input
+      <footer class="footer">
+        <img src="../img/logo.png" width="42px" height="42px" />
+        <span class="footer-text">OpSec</span>
+      </footer>
+      <!-- <input
         class="chosen-value text-center"
         type="text"
         placeholder="Safe Bookmarks"
       />
-      <ul class="value-list" id="value-list"></ul>
-
-      <a href="report.html">
-        <div
-          title="Report a scam to the OpSecurity team"
-          class="chosen-value text-center"
-          type="text"
-        >
-          Report Scam
-        </div>
-      </a>
+      <ul class="value-list" id="value-list"></ul> -->
     </div>
-
-    <footer class="page-footer font-small cyan darken-3 mt-3">
-      <a href="https://twitter.com/phishfort" target="_blank">
-        <img class="twitter-icon center" src="../img/twitter.svg" />
-      </a>
-      <div class="text-center small mt-3 black-text">
-        <a href="settings.html" class="black-text"> Settings </a>
-        |
-        <a href="info.html" class="black-text"> About </a>
-        |
-        <a href="privacy.html" class="black-text"> Privacy Policy </a>
-      </div>
-      <div class="footer-copyright text-center py-3 small">
-        Copyright © 2021
-        <a href="https://www.phishfort.com" target="_blank">OpSecurity</a>
-      </div>
-    </footer>
 
     <script src="../js/index.js"></script>
   </body>

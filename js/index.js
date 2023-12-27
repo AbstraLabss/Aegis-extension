@@ -10,7 +10,7 @@ function getVersion() {
 function hasAccepted() {
   // let currVersion = getVersion();
   // let prevVersion = localStorage['protect-privacy-version']
-  let acceptedTerms = localStorage['accepted-terms'];
+  let acceptedTerms = localStorage["accepted-terms"];
 
   if (acceptedTerms) {
     return true;
@@ -28,7 +28,7 @@ const background = browser.extension.getBackgroundPage();
 
 let whitelist = background.whitelist.sort();
 whitelist.forEach(function (item) {
-  var li = document.createElement('li');
+  var li = document.createElement("li");
   li.style.background = `url(../img/favicons/${item}-favicon.png) no-repeat 22px 24px`;
   li.style.paddingLeft = "50px";
   li.value = item;
@@ -40,7 +40,8 @@ let options = document.getElementsByTagName("li");
 
 for (let i = 0; i < options.length; i++) {
   options[i].addEventListener("input", function (event) {
-    var isInputEvent = (Object.prototype.toString.call(event).indexOf("InputEvent") > -1);
+    var isInputEvent =
+      Object.prototype.toString.call(event).indexOf("InputEvent") > -1;
     if (!isInputEvent || whitelist.includes(options[i].value)) {
       browser.tabs.update({ url: `https://${options[i].value}` });
       window.close();
@@ -48,23 +49,23 @@ for (let i = 0; i < options.length; i++) {
   });
 }
 
-const inputField = document.querySelector('.chosen-value');
-const dropdown = document.querySelector('.value-list');
-const dropdownArray = [...document.querySelectorAll('li')];
+const inputField = document.querySelector(".chosen-value");
+const dropdown = document.querySelector(".value-list");
+const dropdownArray = [...document.querySelectorAll("li")];
 
 let valueArray = [];
-dropdownArray.forEach(item => {
+dropdownArray.forEach((item) => {
   valueArray.push(item.textContent);
 });
 
 const closeDropdown = () => {
-  dropdown.classList.remove('open');
-}
+  dropdown.classList.remove("open");
+};
 
 let searchResults = [];
 
-inputField.addEventListener('input', () => {
-  dropdown.classList.add('open');
+inputField.addEventListener("input", () => {
+  dropdown.classList.add("open");
   let inputValue = inputField.value.toLowerCase();
   let results = 0;
 
@@ -72,37 +73,41 @@ inputField.addEventListener('input', () => {
     searchResults = [];
     displayedIndex = 0;
     for (let j = 0; j < valueArray.length; j++) {
-      if (!(inputValue.substring(0, inputValue.length) === valueArray[j].substring(0, inputValue.length).toLowerCase())) {
-        dropdownArray[j].classList.add('closed');
+      if (
+        !(
+          inputValue.substring(0, inputValue.length) ===
+          valueArray[j].substring(0, inputValue.length).toLowerCase()
+        )
+      ) {
+        dropdownArray[j].classList.add("closed");
       } else {
         searchResults.push(valueArray[j]);
-        dropdownArray[j].classList.remove('closed');
-        results++
+        dropdownArray[j].classList.remove("closed");
+        results++;
       }
       if (results == 0) {
-
       }
     }
   } else {
     for (let i = 0; i < dropdownArray.length; i++) {
-      dropdownArray[i].classList.remove('closed');
+      dropdownArray[i].classList.remove("closed");
     }
   }
 });
 
 let displayedIndex = 0;
 
-inputField.addEventListener('focus', e => {
+inputField.addEventListener("focus", (e) => {
   inputField.placeholder = "";
 });
 
-inputField.addEventListener('focusout', e => {
+inputField.addEventListener("focusout", (e) => {
   if (inputField.value.length === 0) {
     inputField.placeholder = "Safe Bookmarks";
   }
 });
 
-inputField.addEventListener('keydown', e => {
+inputField.addEventListener("keydown", (e) => {
   var code = e.which;
   // tab completion
   if (code === 9) {
@@ -120,40 +125,44 @@ inputField.addEventListener('keydown', e => {
   // enter key
   else if (code === 13) {
     let inputValue = inputField.value.toLowerCase();
-    let link = valueArray.filter(val => (inputValue.substring(0, inputValue.length) === val.substring(0, inputValue.length).toLowerCase()))[0];
+    let link = valueArray.filter(
+      (val) =>
+        inputValue.substring(0, inputValue.length) ===
+        val.substring(0, inputValue.length).toLowerCase()
+    )[0];
     if (link) {
       browser.tabs.create({ url: `https://${link}` });
     }
   }
 });
 
-dropdownArray.forEach(item => {
-  item.addEventListener('click', (evt) => {
+dropdownArray.forEach((item) => {
+  item.addEventListener("click", (evt) => {
     inputField.value = item.textContent;
-    dropdownArray.forEach(dropdown => {
-      dropdown.classList.add('closed');
+    dropdownArray.forEach((dropdown) => {
+      dropdown.classList.add("closed");
       browser.tabs.update({ url: `https://${item.textContent}` });
       window.close();
     });
   });
-})
+});
 
-inputField.addEventListener('focus', () => {
-  dropdown.classList.add('open');
-  dropdownArray.forEach(dropdown => {
-    dropdown.classList.remove('closed');
+inputField.addEventListener("focus", () => {
+  dropdown.classList.add("open");
+  dropdownArray.forEach((dropdown) => {
+    dropdown.classList.remove("closed");
   });
 });
 
-inputField.addEventListener('blur', () => {
-  dropdown.classList.remove('open');
+inputField.addEventListener("blur", () => {
+  dropdown.classList.remove("open");
 });
 
-document.addEventListener('click', (evt) => {
+document.addEventListener("click", (evt) => {
   const isDropdown = dropdown.contains(evt.target);
   const isInput = inputField.contains(evt.target);
   if (!isDropdown && !isInput) {
-    dropdown.classList.remove('open');
+    dropdown.classList.remove("open");
   }
 });
 
@@ -164,10 +173,16 @@ document.addEventListener('click', (evt) => {
 //   document.getElementById("profileButton").remove()
 // };
 
-if (typeof localStorage["address"] !== 'undefined') {
-  document.getElementById("profileButton").innerText = shortenAddress(localStorage["address"]);
+if (typeof localStorage["address"] !== "undefined") {
+  document.getElementById("profileButton").innerText = shortenAddress(
+    localStorage["address"]
+  );
 }
 
 function shortenAddress(address) {
-  return address.substring(0, 4) + "..." + address.substring(address.length - 2, address.length);
+  return (
+    address.substring(0, 4) +
+    "..." +
+    address.substring(address.length - 2, address.length)
+  );
 }
