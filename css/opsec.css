@@ -284,6 +284,17 @@
   text-align: center;
 }
 
+/* Success and Error Pages from Report page */
+.container__indicator-report {
+  width: fit-content;
+  height: -webkit-fill-available;
+}
+
+.container__indicator-report .indicator-text {
+  text-transform: none;
+  white-space: nowrap;
+}
+
 /* Navbar stylings */
 .opsec__navbar {
   display: flex;
