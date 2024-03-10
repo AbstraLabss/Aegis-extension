@@ -16,7 +16,7 @@ function addBadges() {
         icon.src = chrome.runtime.getURL("/img/twitter-whitelisted.png");
         icon.style =
           "padding-left:3px;display:inline;vertical-align:text-bottom;float:none;height:15px;width:15px;left:15px;";
-        icon.title = `@${username} is a OpSecurity verified user`;
+        icon.title = `@${username} is a Aegis verified user`;
         icon.setAttribute("phishfort-badge", true);
         user.appendChild(icon);
         user.setAttribute("phishfort-tagged", true);

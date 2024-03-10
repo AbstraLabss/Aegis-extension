@@ -20,7 +20,7 @@ Why use Aegis?
 
 The plugin will indicate different colors depending on the website you're visiting.
 
-- 💚 Green: Indicates that the domain is known and likely safe. For example, if you visit myetherwallet.com, the OpSecurity Status Icon will glow blue. 
+- 💚 Green: Indicates that the domain is known and likely safe. For example, if you visit myetherwallet.com, the Aegis Status Icon will glow blue. 
 - ⚪  Grey: The site hasn't been categorized. It's not necessarily unsafe, but proceed with caution! 
 - 🔴 Red: The site is most likely dangerous. If you visit myWetherwallet.com (a typosquatting attack), the plugin will notify you that you are on an unsafe site and you'll be sent back to safety. You're also able to bypass the warning if you need!
 
