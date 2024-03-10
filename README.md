@@ -1,4 +1,4 @@
-# OpSecurity | Protect
+# Aegis
 
 Protect yourself from phishing attacks.
 
@@ -6,14 +6,13 @@ Protect yourself from phishing attacks.
 -----------------
 - 🌐Get notified when you are on a dangerous website. 
 - ✅See verified Twitter crypto-users. 
-- 👉Report dangerous websites, Twitter users, and mobile apps directly to the OpSecurity team.
+- 👉Report dangerous websites, Twitter users, and mobile apps directly to the Aegis team.
 
-Why use Protect?
+Why use Aegis?
 -----------------
 
 - 🕶 Privacy focused - Your URLs are never sent to us, keep your browsing private.
 - 🔎 Open-source - Know what code is running in your browser (https://github.com/phishfort/protect/) 
-- 💸 Free! - Protect is a community project maintained by OpSecurity. 
 - 🔮 Great coverage - We protect some of the largest crypto companies in the space, including MyEtherWallet, IDEX, Paxful. Our anti-phishing intel is fed directly to our plugin and is the most reliable way of staying safe.
 
 ♦ Status Indicators ♦

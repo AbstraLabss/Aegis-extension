@@ -1,13 +1,13 @@
 {
   "manifest_version": 2,
-  "name": "OpSecurity | Protect",
-  "short_name": "OpSecurity | Protect",
+  "name": "Aegis Extension",
+  "short_name": "Aegis",
   "description": "Protect yourself from phishing attacks.",
   "version": "1.0.1.10",
-  "author": "OpSecurity",
+  "author": "AbstraLabs",
   "browser_action": {
     "default_icon": "img/tab-icon.png",
-    "default_title": "OpSecurity | Protect",
+    "default_title": "Aegis",
     "default_popup": "html/index.html"
   },
   "icons": {
