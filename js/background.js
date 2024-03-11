@@ -196,15 +196,21 @@ function updateIcon(tabId) {
 function updatePopup(text, color, title) {
   var views = browser.extension.getViews({ type: "popup" });
   if (views.length > 0) {
+    let element = views[0].document.getElementById("aegis-main");
     let indicatorElement = views[0].document.getElementById("statusPhrase");
-    let indicatorImage = views[0].document.getElementById("statusImage");
+    console.log(element, "aegis-main");
+    if (element) {
+      element.classList.remove(
+        "aegis__unknown",
+        "aegis__safe",
+        "aegis__unsafe"
+      );
+      element.classList.add(`aegis__${text.toLowerCase()}`);
+    }
     if (indicatorElement) {
       indicatorElement.textContent = text;
-      indicatorElement.style.color = color;
+      indicatorElement.style.color = "#FFFFFF";
       indicatorElement.title = title;
-    }
-    if (indicatorImage) {
-      indicatorImage.src = `/img/${text.toLowerCase()}.png`;
     }
   }
 }
