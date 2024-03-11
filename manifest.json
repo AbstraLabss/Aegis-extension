@@ -41,6 +41,10 @@
       "run_at": "document_end",
       "matches": ["http://*/*", "https://*/*"],
       "js": ["js/addressBlacklist.js"]
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"]
     }
   ]
 }

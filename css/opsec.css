@@ -124,42 +124,67 @@
 
 /* Report Page stylings */
 
-.main__bg-report {
-  background-image: url(../img/bg_bottom-report.png);
+.report-page {
+  background: url("../img/report_bg.png");
+  background-repeat: round;
+  background-size: cover;
 }
 
 .container-report {
   margin-top: 0;
+  padding: 20px 20px 0;
 }
 
 .container__header {
   position: relative;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .container__header h3 {
   font-family: "Satoshi", sans-serif;
   font-size: 18px;
   text-align: center;
-  color: #71717a;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 38%;
 }
-
-.container__header a {
-  position: absolute;
-  left: 0;
-  top: 0;
+.report_page-title {
+  margin: 1.5rem 0;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  font-family: "Satoshi", sans-serif;
 }
-
 .container__website-report {
   flex-direction: row;
   margin: 8px 0;
 }
 
+.report_radio {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.radio_element {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.radio_element span {
+  color: #fff;
+  font-size: 1rem;
+  font-family: "Satoshi", sans-serif;
+}
 .container__inputElements {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin: 10px 0;
+  gap: 1rem;
+  margin: 1rem 0;
 }
 
 .inputElement {
@@ -171,11 +196,10 @@
 }
 
 .container__inputElements input,
-.dropdown {
+.container__inputElements textarea {
   width: min(100%, 300px);
   padding: 12px;
   background-color: #18181b;
-  border-radius: 14px;
   border: none;
   outline: none;
   color: #fff;
@@ -183,54 +207,20 @@
   height: 48px;
 }
 
-.dropdown {
-  position: relative;
-  color: #52525b;
-  margin-bottom: 10px;
-  padding: 0;
-  transition: margin-bottom 0.3s ease;
-}
-
-.dropdown label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
-  transition: all 0.3s ease;
-}
-
-.dropdown label img {
-  transition: transform 0.3s ease;
-}
-
-.dropdown .dropdown-content {
-  width: 100%;
-  position: relative;
-  background-color: #18181b;
-  opacity: 0;
-  height: 0;
-  transition: all 0.3s ease;
-  flex-direction: column;
-  gap: 2px;
-  border-radius: 14px;
-  z-index: 1;
-}
-
-.dropdown__item {
-  cursor: pointer;
-  padding: 12px;
-  font-size: 16px;
-  color: #fff;
-}
-
-.container__inputElements input::placeholder {
+.container__inputElements input::placeholder,
+.container__inputElements textarea::placeholder {
   color: #52525b;
   font-size: 14px;
 }
 
-.container__inputElements input:focus {
+.container__inputElements input:focus,
+.container__inputElements textarea:focus {
   border: none;
   outline: none;
+}
+
+.container__inputElements textarea {
+  height: 75px;
 }
 
 .instantiated_dropdown {
@@ -246,9 +236,11 @@
   width: min(100%, 280px);
   padding: 16px 12px;
   background-color: #fff;
-  border-radius: 45px;
   height: 48px;
   cursor: pointer;
+  position: absolute;
+  bottom: 1rem;
+  left: 20px;
 }
 
 .button--report {
@@ -365,3 +357,5 @@
   max-width: 250px;
   font-weight: 400;
 }
+
+/* Aegis */

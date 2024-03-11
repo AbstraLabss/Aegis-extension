@@ -27,48 +27,27 @@
   <body style="position: relative">
     <div id="loader-background"></div>
     <div id="loader"></div>
-    <div class="page-content opsec-main">
-      <div class="main__bg main__bg-2 main__bg-report"></div>
-
+    <div class="page-content opsec-main report-page">
       <div class="container container-report">
         <div class="container__header">
+          <h3>Reporting</h3>
           <a href="./index.html">
-            <img width="18px" height="18px" src="../img/back-arrow_icon.png" />
+            <img width="18px" height="18px" src="../img/arrow-left.png" />
           </a>
-          <h3>Report</h3>
         </div>
 
-        <div class="container__website container__website-report">
-          <img
-            src="../img/internet_icon.png"
-            width="32px"
-            height="32px"
-            id="headerFavicon"
-          />
-          <span id="headerTitle" class="website-title"></span>
-        </div>
-        <!-- <div class="form-group">
-            <label for="targets">Target Brand</label>
-            <input
-              class="inputStyle"
-              type="hidden"
-              name="target"
-              id="target"
-              placeholder="e.g. myetherwallet.com"
-            />
-            <select id="targets"></select>
-          </div> -->
-        <div class="container__inputElements">
-          <div class="dropdown" id="dropdown" aria-modal="false">
-            <label for="typeDropdown">
-              <span>You are reporting:</span>
-              <img src="../img/arrow-down.png" />
-            </label>
-            <div class="dropdown-content" id="typeDropdown" data-value="">
-              <div data-value="domain" class="dropdown__item">Website</div>
-              <div data-value="social" class="dropdown__item">X Account</div>
-            </div>
+        <h3 class="report_page-title">Which platform do you want to report?</h3>
+        <div class="report_radio" data-value="">
+          <div class="radio_element" data-value="website" id="radio_website">
+            <img src="../img/radio_unticked.png" width="18px" height="20px" />
+            <span>Website</span>
           </div>
+          <div class="radio_element" data-value="x_profile" id="radio_x">
+            <img src="../img/radio_unticked.png" width="18px" height="20px" />
+            <span>X Profile</span>
+          </div>
+        </div>
+        <div class="container__inputElements">
           <div class="inputElement instantiated_dropdown">
             <input
               type="url"
@@ -78,7 +57,7 @@
               required
             />
             <a href="#" id="reportCurrent"
-              ><span class="small pull-right mt-1">Report current site</span></a
+              ><span class="small pull-right mt-1">Report current url</span></a
             >
           </div>
           <input
@@ -89,22 +68,20 @@
             placeholder="Impersonated URL (Optional)"
             required
           />
+          <textarea
+            class="instantiated_dropdown"
+            placeholder="Description"
+          ></textarea>
         </div>
       </div>
-
-      <footer class="footer">
-        <div id="instantiated_dropdown--true">
-          <img src="../img/logo.png" width="42px" height="42px" />
-          <span class="footer-text">OpSec</span>
-        </div>
-        <div
-          class="instantiated_dropdown"
-          style="display: none"
-          id="reportButton"
-        >
-          <button class="button--report">SEND REPORT</button>
-        </div>
-      </footer>
+      <div
+        class="instantiated_dropdown"
+        style="display: none"
+        id="reportButton"
+      >
+        <button class="button--report">SEND REPORT</button>
+      </div>
+      <footer class="footer"></footer>
     </div>
 
     <script src="../js/jquery-3.3.1.min.js"></script>
